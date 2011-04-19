@@ -14,7 +14,7 @@ JSON
 	};
 
 
-=== Prototypal Inheritance
+Prototypal Inheritance
 --------
 
 	var parent = { _["x"] = 42 };
