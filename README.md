@@ -5,7 +5,7 @@
 
 C++0x, the new specification of C++ adds features such as lambda, foreach and list construction. It is therefore possible to write C++ in a Javascript fashion.
 
-All the code below is written in C++ and works.
+All the code below is written in C++ and (will) works.
 
 JSON
 --------
