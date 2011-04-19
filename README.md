@@ -1,7 +1,7 @@
 [js++]
 ====
 
-**This is in early development**
+**!!This is in early development!!**
 
 C++0x, the new specification of C++ adds features such as lambda, foreach and list construction. It is therefore possible to write C++ in a Javascript fashion.
 
