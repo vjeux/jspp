@@ -1,7 +1,8 @@
 ==== [js++]
 
 
-=== JSON ===
+JSON
+--------
 
 	var json = {
 		_["number"] = 42,
@@ -14,6 +15,7 @@
 
 
 === Prototypal Inheritance
+--------
 
 	var parent = { _["x"] = 42 };
 	var child = { };
