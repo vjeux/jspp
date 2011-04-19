@@ -1,4 +1,5 @@
-==== [js++]
+[js++]
+====
 
 
 JSON
@@ -19,6 +20,7 @@ Prototypal Inheritance
 
 	var parent = { _["x"] = 42 };
 	var child = { };
+	child["prototype"] = parent;
 
 	std::cout << child["x"] << std::endl;
 	// 42
