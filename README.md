@@ -43,3 +43,48 @@ Dynamic Typing
 
 	std::cout << repeat("js++ ", 3) << std::endl;
 	// "js++ js++ js++ "
+
+
+Iteration
+-------------
+
+	var array = {10, 42, 30};
+	for (var i : array) {
+		std::cout << i << " - " << array[i] << std::endl;
+	}
+	// 0 - 10
+	// 1 - 42
+	// 2 - 30
+
+
+	var object = {
+		_["a"] = 1,
+		_["b"] = 2,
+		_["c"] = 3
+	};
+	for (var i : object) {
+		std::cout << i << " - " << object[i] << std::endl;
+	}
+	// a - 1
+	// b - 2
+	// c - 3
+	
+
+Lambda
+--------------
+
+	var Utils = {
+		_["map"] = lambda (var array, var func) {
+			for (var i : array) {
+				array[i] = func(array[i]);
+			}
+		}
+	}
+
+	var a = {1, 2, 3};
+	Utils["map"](a, lambda (var i) {
+		return i += 1;
+	});
+
+	std::cout << a << std::endl;
+	// {2, 3, 4}
