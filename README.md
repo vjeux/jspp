@@ -1,7 +1,7 @@
 ==== [js++]
 
 
-=== JSON
+=== JSON ===
 
 	var json = {
 		_["number"] = 42,
