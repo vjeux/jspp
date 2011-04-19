@@ -28,3 +28,18 @@ Prototypal Inheritance
 	child["x"] = "js++";
 	std::cout << child["x"] << std::endl;
 	// "js++"
+
+
+Dynamic Typing
+---------
+
+	function repeat(var str, var times) {
+		var ret = "";
+		for (var i = 0; i < times; ++i) {
+			ret += str;
+		}
+		return str;
+	}
+
+	std::cout << repeat("js++ ", 3) << std::endl;
+	// "js++ js++ js++ "
