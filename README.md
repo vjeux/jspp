@@ -98,3 +98,15 @@ Lambda
 	_(function () {
 		// New scope !
 	)();
+
+Everything is a reference
+-----------------
+
+	var a = 0;
+	a["key"] = "old";
+	
+	var b = a;
+	b["key"] = "new";
+
+	std::cout << a["key"] << " - " << b["key"] << std::endl;
+	// new - new 
