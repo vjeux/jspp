@@ -79,7 +79,7 @@ Lambda
 --------------
 
 	var Utils = {
-		_["map"] = lambda (var array, var func) {
+		_["map"] = function (var array, var func) {
 			for (var i : array) {
 				array[i] = func(array[i]);
 			}
@@ -87,9 +87,14 @@ Lambda
 	}
 
 	var a = {1, 2, 3};
-	Utils["map"](a, lambda (var i) {
+	Utils["map"](a, function (var i) {
 		return i += 1;
 	});
 
 	std::cout << a << std::endl;
 	// {2, 3, 4}
+
+
+	_(function () {
+		// New scope !
+	)();
