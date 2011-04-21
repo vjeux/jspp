@@ -145,8 +145,8 @@ var f = function (var x, var y) {
 };
 
 // New creates a new object this
-var a = New(f)(1, 2); // This: <function 005240d0>
-var b = New(f)(3, 4); // This: <function 005248e0>
+var a = New(f)(1, 2); // This: &lt;function 005240d0>
+var b = New(f)(3, 4); // This: &lt;function 005248e0>
 
 // Unbound call, This is undefined
 var c = f(5, 6);
@@ -169,11 +169,11 @@ var f = function (x, y) {
 };
 
 // New creates a new object this
-var a = new f(1, 2); // This: <function 005240d0>
-var b = new f(3, 4); // This: <function 005248e0>
+var a = new f(1, 2); // This: &lt;function 005240d0>
+var b = new f(3, 4); // This: &lt;function 005248e0>
 
 // Unbound call
-var c = f(5, 6); // This: undefined
+var c = f(5, 6); // This: window
 
 // Bound call
 var obj = new Number(42);
