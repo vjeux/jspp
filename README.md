@@ -134,7 +134,8 @@ std::cout << a["key"] << " - " << b["key"] << std::endl;
 This 
 -------
 
-```javascript
+
+<table><tr><td><strong>C++</strong><pre>
 var f = function (var x, var y) {
 	std::cout << "This: " << This << std::endl;
 	This["x"] = x;
@@ -158,4 +159,28 @@ var d = obj["f"](1, 2); // This: 42
 
 // Call
 var e = f["call"](obj, 1, 2); // This: 42
-```
+</pre></td><td><strong>Javascript</strong><pre>
+var f = function (x, y) {
+	console.log("This: ", this);
+	this["x"] = x;
+	this["y"] = y;
+
+	return this;
+};
+
+// New creates a new object this
+var a = new f(1, 2); // This: <function 005240d0>
+var b = new f(3, 4); // This: <function 005248e0>
+
+// Unbound call
+var c = f(5, 6); // This: undefined
+
+// Bound call
+var obj = new Number(42);
+obj["f"] = f;
+
+var d = obj["f"](1, 2); // This: 42
+
+// Call
+var e = f["call"](obj, 1, 2); // This: 42
+</pre></td></tr></table>
