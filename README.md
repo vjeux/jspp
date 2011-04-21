@@ -19,7 +19,7 @@ var json = {
 		_["first"] = 1
 	}
 };
-</pre></td><td><strong>Javascript</strong><code>
+</pre></td><td><strong>Javascript</strong><pre>
 var json = {
 	"number": 42,
 	"string": kikoo,
@@ -28,7 +28,7 @@ var json = {
 		"first": 1
 	}
 };
-</code></td></tr></table>
+</pre></td></tr></table>
 
 
 
