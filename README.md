@@ -15,7 +15,7 @@ JSON
 <td>
 C++
 
-```javascript
+<code>
 var json = {
 	_["number"] = 42,
 	_["string"] = "kikoo",
@@ -24,7 +24,7 @@ var json = {
 		_["first"] = 1
 	}
 };
-```
+</code>
 
 </td>
 <td>
