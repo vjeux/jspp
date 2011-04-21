@@ -110,3 +110,30 @@ Everything is a reference
 
 	std::cout << a["key"] << " - " << b["key"] << std::endl;
 	// new - new 
+
+This 
+-------
+
+	var f = function (var x, var y) {
+		std::cout << "This: " << This << std::endl;
+		This["x"] = x;
+		This["y"] = y;
+
+		return This;
+	};
+
+	// New creates a new object this
+	var a = New(f)(1, 2); // This: <function 005240d0>
+	var b = New(f)(3, 4); // This: <function 005248e0>
+
+	// Unbound call, This is undefined
+	var c = f(5, 6);
+
+	// Bound call
+	var obj = 42;
+	obj["f"] = f;
+
+	var d = obj["f"](1, 2); // This: 42
+
+	// Call
+	var e = f["call"](obj, 1, 2); // This: 42
