@@ -134,7 +134,6 @@ std::cout << a["key"] << " - " << b["key"] << std::endl;
 This 
 -------
 
-
 <table><tr><td><strong>C++</strong><pre>
 var f = function (var x, var y) {
 	std::cout &lt;&lt; "This: " &lt;&lt; This &lt;&lt; std::endl;
@@ -183,4 +182,34 @@ var d = obj["f"](1, 2); // This: 42
 
 // Call
 var e = f["call"](obj, 1, 2); // This: 42
+</pre></td></tr></table>
+
+
+
+Exception Handling 
+-------
+
+
+<table><tr><td><strong>C++</strong><pre>
+var go_die = function () {
+	throw _("Exception!");
+};
+
+try {
+	go_die();
+} catch (var e) {
+	std::cout << "Error: " << e << std::endl;
+}
+// Error: Exception
+</pre></td><td><strong>Javascript</strong><pre>
+var go_die = function () {
+	throw "Exception!";
+};
+
+try {
+	go_die();
+} catch (e) {
+	console.log("Error:", e);
+}
+// Error: Exception
 </pre></td></tr></table>
