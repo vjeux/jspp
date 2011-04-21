@@ -198,7 +198,7 @@ var go_die = function () {
 try {
 	go_die();
 } catch (var e) {
-	std::cout << "Error: " << e << std::endl;
+	std::cout &lt;&lt; "Error: " &lt;&lt; e &lt;&lt; std::endl;
 }
 // Error: Exception
 </pre></td><td><strong>Javascript</strong><pre>
