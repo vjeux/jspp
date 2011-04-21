@@ -10,6 +10,9 @@ All the code below is written in C++ and (will) works.
 JSON
 --------
 
+<table>
+<tr>
+<td>C++
 ```javascript
 var json = {
 	_["number"] = 42,
@@ -20,6 +23,21 @@ var json = {
 	}
 };
 ```
+</td>
+<td>
+Javascript
+```javascript
+var json = {
+	"number": 42,
+	"string": kikoo,
+	"array": [1, 2, "lol"],
+	"nested": {
+		"first": 1
+	}
+};
+</td>
+</tr></table>
+
 
 
 Prototypal Inheritance
