@@ -10,130 +10,142 @@ All the code below is written in C++ and (will) works.
 JSON
 --------
 
-	var json = {
-		_["number"] = 42,
-		_["string"] = "kikoo",
-		_["array"] = {1, 2, "lol"},
-		_["nested"] = {
-			_["first"] = 1
-		}
-	};
+```javascript
+var json = {
+	_["number"] = 42,
+	_["string"] = "kikoo",
+	_["array"] = {1, 2, "lol"},
+	_["nested"] = {
+		_["first"] = 1
+	}
+};
+```
 
 
 Prototypal Inheritance
 --------
 
-	var parent = { _["x"] = 42 };
-	var child = { };
-	child["prototype"] = parent;
+```javascript
+var parent = { _["x"] = 42 };
+var child = { };
+child["prototype"] = parent;
 
-	std::cout << child["x"] << std::endl;
-	// 42
+std::cout << child["x"] << std::endl;
+// 42
 
-	child["x"] = "js++";
-	std::cout << child["x"] << std::endl;
-	// "js++"
+child["x"] = "js++";
+std::cout << child["x"] << std::endl;
+// "js++"
+```
 
 
 Dynamic Typing
 ---------
 
-	function repeat(var str, var times) {
-		var ret = "";
-		for (var i = 0; i < times; ++i) {
-			ret += str;
-		}
-		return str;
+```javascript
+function repeat(var str, var times) {
+	var ret = "";
+	for (var i = 0; i < times; ++i) {
+		ret += str;
 	}
+	return str;
+}
 
-	std::cout << repeat("js++ ", 3) << std::endl;
-	// "js++ js++ js++ "
-
+std::cout << repeat("js++ ", 3) << std::endl;
+// "js++ js++ js++ "
+```
 
 Iteration
 -------------
 
-	var array = {10, 42, 30};
-	for (var i : array) {
-		std::cout << i << " - " << array[i] << std::endl;
-	}
-	// 0 - 10
-	// 1 - 42
-	// 2 - 30
+```javascript
+var array = {10, 42, 30};
+for (var i : array) {
+	std::cout << i << " - " << array[i] << std::endl;
+}
+// 0 - 10
+// 1 - 42
+// 2 - 30
 
 
-	var object = {
-		_["a"] = 1,
-		_["b"] = 2,
-		_["c"] = 3
-	};
-	for (var i : object) {
-		std::cout << i << " - " << object[i] << std::endl;
-	}
-	// a - 1
-	// b - 2
-	// c - 3
-	
+var object = {
+	_["a"] = 1,
+	_["b"] = 2,
+	_["c"] = 3
+};
+for (var i : object) {
+	std::cout << i << " - " << object[i] << std::endl;
+}
+// a - 1
+// b - 2
+// c - 3
+```
 
 Lambda
 --------------
 
-	var Utils = {
-		_["map"] = function (var array, var func) {
-			for (var i : array) {
-				array[i] = func(array[i]);
-			}
+```javascript
+var Utils = {
+	_["map"] = function (var array, var func) {
+		for (var i : array) {
+			array[i] = func(array[i]);
 		}
 	}
+}
 
-	var a = {1, 2, 3};
-	Utils["map"](a, function (var i) {
-		return i += 1;
-	});
+var a = {1, 2, 3};
+Utils["map"](a, function (var i) {
+	return i += 1;
+});
 
-	std::cout << a << std::endl;
-	// {2, 3, 4}
+std::cout << a << std::endl;
+// {2, 3, 4}
 
 
-	_(function () {
-		// New scope !
-	)();
+_(function () {
+	// New scope !
+)();
+```
 
 Everything is a reference
 -----------------
 
-	var a = 0;
-	a["key"] = "old";
-	
-	var b = a;
-	b["key"] = "new";
+```javascript
+var a = 0;
+a["key"] = "old";
 
-	std::cout << a["key"] << " - " << b["key"] << std::endl;
-	// new - new 
+var b = a;
+b["key"] = "new";
+
+std::cout << a["key"] << " - " << b["key"] << std::endl;
+// new - new 
+```
 
 This 
 -------
 
-	var f = function (var x, var y) {
-		std::cout << "This: " << This << std::endl;
-		This["x"] = x;
-		This["y"] = y;
+```javascript
+var f = function (var x, var y) {
+	std::cout << "This: " << This << std::endl;
+	This["x"] = x;
+	This["y"] = y;
 
-		return This;
-	};
+	return This;
+};
 
-	// New creates a new object this
-	var a = New(f)(1, 2); // This: <function 005240d0>
-	var b = New(f)(3, 4); // This: <function 005248e0>
+// New creates a new object this
+var a = New(f)(1, 2); // This: <function 005240d0>
+var b = New(f)(3, 4); // This: <function 005248e0>
 
-	// Unbound call, This is undefined
-	var c = f(5, 6);
+// Unbound call, This is undefined
+var c = f(5, 6);
 
-	// Bound call
-	var obj = 42;
-	obj["f"] = f;
+// Bound call
+var obj = 42;
+obj["f"] = f;
 
-	var d = obj["f"](1, 2); // This: 42
+var d = obj["f"](1, 2); // This: 42
 
-	// Call
-	var e = f["call"](obj, 1, 2); // This: 42
+// Call
+var e = f["call"](obj, 1, 2); // This: 42
+```
