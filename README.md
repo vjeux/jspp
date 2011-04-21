@@ -10,12 +10,7 @@ All the code below is written in C++ and (will) works.
 JSON
 --------
 
-<table>
-<tr>
-<td>
-C++
-
-<pre>
+<table><tr><td><strong>C++</strong><pre>
 var json = {
 	_["number"] = 42,
 	_["string"] = "kikoo",
@@ -24,14 +19,7 @@ var json = {
 		_["first"] = 1
 	}
 };
-</pre>
-
-</td>
-<td>
-
-Javascript
-
-```javascript
+</pre></td><td><strong>Javascript</strong><code>
 var json = {
 	"number": 42,
 	"string": kikoo,
@@ -40,10 +28,7 @@ var json = {
 		"first": 1
 	}
 };
-```
-
-</td>
-</tr></table>
+</code></td></tr></table>
 
 
 
