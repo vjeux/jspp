@@ -12,7 +12,9 @@ JSON
 
 <table>
 <tr>
-<td>C++
+<td>
+C++
+
 ```javascript
 var json = {
 	_["number"] = 42,
@@ -23,9 +25,12 @@ var json = {
 	}
 };
 ```
+
 </td>
 <td>
+
 Javascript
+
 ```javascript
 var json = {
 	"number": 42,
@@ -35,6 +40,8 @@ var json = {
 		"first": 1
 	}
 };
+```
+
 </td>
 </tr></table>
 
