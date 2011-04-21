@@ -137,7 +137,7 @@ This
 
 <table><tr><td><strong>C++</strong><pre>
 var f = function (var x, var y) {
-	std::cout << "This: " << This << std::endl;
+	std::cout &lt;&lt; "This: " &lt;&lt; This &lt;&lt; std::endl;
 	This["x"] = x;
 	This["y"] = y;
 
