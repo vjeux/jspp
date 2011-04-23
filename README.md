@@ -85,6 +85,7 @@ var Utils = {
         for (var i = 0; i &lt; array["length"]; ++i) {
             array[i] = func(i, array[i]);
         }
+
     }
 };
 
@@ -149,7 +150,6 @@ for (var i in object) {
 // b - 2
 // c - 3
 
-
 </pre></td></tr></table>
 
 
@@ -168,7 +168,8 @@ var json = {
 };
 
 std::cout &lt;&lt; json &lt;&lt; std::endl;
-// {array: [1, 2, lol], nested: {first: 1}, number: 42, string: kikoo}
+// {array: [1, 2, lol], nested: {first: 1},
+    number: 42, string: kikoo}
 </pre></td><td><strong>Javascript</strong><pre>
 var json = {
     "number": 42,
@@ -181,7 +182,8 @@ var json = {
 };
 
 console.log(json);
-// {number: 42, string: 'kikoo', array: [1, 2, lol], nested: {first: 1}}
+// {number: 42, string: 'kikoo',
+    array: [1, 2, lol], nested: {first: 1}}
 </pre></td></tr></table>
 
 
@@ -267,7 +269,6 @@ var f = function (var x, var y) {
     std::cout &lt;&lt; "this: " &lt;&lt; This &lt;&lt; std::endl;
     This["x"] = x;
     This["y"] = y;
-
     return This;
 };
 
@@ -291,6 +292,7 @@ var f = function (x, y) {
     console.log("this:", this);
     this["x"] = x;
     this["y"] = y;
+
 };
 
 // New creates a new object this
