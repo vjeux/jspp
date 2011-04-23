@@ -1,7 +1,7 @@
 #include "../src/javascript_start.h"
 
 var f = function (var x, var y) {
-    std::cout << "This: " << This << std::endl;
+    std::cout << "this: " << This << std::endl;
     This["x"] = x;
     This["y"] = y;
 
@@ -9,19 +9,19 @@ var f = function (var x, var y) {
 };
 
 // New creates a new object this
-var a = New(f)(1, 2); // This: <function 0x005240d0>
-var b = New(f)(3, 4); // This: <function 0x005248e0>
+var a = New(f)(1, 2); // this: <function 0x005240d0>
+var b = New(f)(3, 4); // this: <function 0x005248e0>
 
 // Unbound call, 
-var c = f(5, 6); // This: undefined
+var c = f(5, 6); // this: undefined
 
 // Bound call
 var obj = {42};
 obj["f"] = f;
 
-var d = obj["f"](1, 2); // This: [42]
+var d = obj["f"](1, 2); // this: [42]
 
 // Call
-var e = f["call"](obj, 1, 2); // This: [42]
+var e = f["call"](obj, 1, 2); // this: [42]
 
 #include "../src/javascript_end.h"

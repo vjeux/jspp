@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "../src/javascript_start.h"
 
 var repeat = function (var str, var times) {

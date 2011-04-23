@@ -9,6 +9,6 @@ try {
 } catch (var e) {
     std::cout << "Error: " << e << std::endl;
 }
-// Error: Exception
+// Error: Exception!
 
 #include "../src/javascript_end.h"
