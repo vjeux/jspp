@@ -1,6 +1,4 @@
 
 CPP                                           | Javascript
 ----------------------------------------------|---------------------------------------:
-```javascript                                 | ```javascript```
-This is a test                                | Another one
-```                                           | ```
+```javascript\\Test\\Test```                                 | ```javascript```
