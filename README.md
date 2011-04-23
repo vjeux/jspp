@@ -105,8 +105,8 @@ for (var i : object) {
 // prototype - undefined
 </pre></td><td><strong>Javascript</strong><pre>
 var array = {10, 42, 30};
-for (var i : array) {
-	std::cout &lt;&lt; i &lt;&lt; " - " &lt;&lt; array[i] &lt;&lt; std::endl;
+for (var i in array) {
+	console.log(i, '-', array[i]);
 }
 // 0 - 10
 // 1 - 42
@@ -120,7 +120,7 @@ var object = {
 	"c": 3
 };
 for (var i in object) {
-	console.log(i, '-', object(i));
+	console.log(i, '-', object[i]);
 }
 // a - 1
 // b - 2
