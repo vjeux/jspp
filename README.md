@@ -12,8 +12,7 @@ var repeat = function (var str, var times) {
 
 std::cout << repeat(" js++", 3) << std::endl;
 // " js++0 js++1 js++2"
-``` |
-```javascript
+``` | ```javascript
 var repeat = function (str, times) {
     var ret = "";
     for (var i = 0; i < times; ++i) {
