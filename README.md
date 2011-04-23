@@ -52,22 +52,39 @@ std::cout << child["x"] << std::endl;
 Dynamic Typing
 ---------
 
+<table><tr><td><strong>C++</strong><pre>
 ```javascript
-function repeat(var str, var times) {
+var repeat = function (var str, var times) {
 	var ret = "";
 	for (var i = 0; i < times; ++i) {
 		ret += str;
 	}
-	return str;
+	return ret;
 }
 
 std::cout << repeat("js++ ", 3) << std::endl;
 // "js++ js++ js++ "
 ```
+</pre></td><td><strong>Javascript</strong><pre>
+```javascript
+var repeat = function (str, times) {
+	var ret = "";
+	for (var i = 0; i < times; ++i) {
+		ret += str;
+	}
+	return ret;
+}
+
+console.log(repeat("js++ ", 3));
+// "js++ js++ js++ "
+```
+</pre></td></tr></table>
+
 
 Iteration
 -------------
 
+<table><tr><td><strong>C++</strong><pre>
 ```javascript
 var array = {10, 42, 30};
 for (var i : array) {
@@ -76,7 +93,8 @@ for (var i : array) {
 // 0 - 10
 // 1 - 42
 // 2 - 30
-
+// prototype - undefined
+// length - 3
 
 var object = {
 	_["a"] = 1,
@@ -89,7 +107,34 @@ for (var i : object) {
 // a - 1
 // b - 2
 // c - 3
+// prototype - undefined
 ```
+</pre></td><td><strong>Javascript</strong><pre>
+```javascript
+var array = {10, 42, 30};
+for (var i : array) {
+	std::cout << i << " - " << array[i] << std::endl;
+}
+// 0 - 10
+// 1 - 42
+// 2 - 30
+
+
+
+var object = {
+	"a": 1,
+	"b": 2,
+	"c": 3
+};
+for (var i in object) {
+	console.log(i, '-', object(i));
+}
+// a - 1
+// b - 2
+// c - 3
+
+```
+</pre></td></tr></table>
 
 Lambda
 --------------
