@@ -53,7 +53,6 @@ Dynamic Typing
 ---------
 
 <table><tr><td><strong>C++</strong><pre>
-```javascript
 var repeat = function (var str, var times) {
 	var ret = "";
 	for (var i = 0; i &lt; times; ++i) {
@@ -64,9 +63,7 @@ var repeat = function (var str, var times) {
 
 std::cout &lt;&lt; repeat("js++ ", 3) &lt;&lt; std::endl;
 // "js++ js++ js++ "
-```
 </pre></td><td><strong>Javascript</strong><pre>
-```javascript
 var repeat = function (str, times) {
 	var ret = "";
 	for (var i = 0; i &lt; times; ++i) {
@@ -77,7 +74,6 @@ var repeat = function (str, times) {
 
 console.log(repeat("js++ ", 3));
 // "js++ js++ js++ "
-```
 </pre></td></tr></table>
 
 
@@ -85,7 +81,6 @@ Iteration
 -------------
 
 <table><tr><td><strong>C++</strong><pre>
-```javascript
 var array = {10, 42, 30};
 for (var i : array) {
 	std::cout &lt;&lt; i &lt;&lt; " - " &lt;&lt; array[i] &lt;&lt; std::endl;
@@ -108,9 +103,7 @@ for (var i : object) {
 // b - 2
 // c - 3
 // prototype - undefined
-```
 </pre></td><td><strong>Javascript</strong><pre>
-```javascript
 var array = {10, 42, 30};
 for (var i : array) {
 	std::cout &lt;&lt; i &lt;&lt; " - " &lt;&lt; array[i] &lt;&lt; std::endl;
@@ -133,7 +126,6 @@ for (var i in object) {
 // b - 2
 // c - 3
 
-```
 </pre></td></tr></table>
 
 Lambda
