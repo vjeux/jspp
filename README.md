@@ -63,7 +63,7 @@ try {
 
 Function
 --------
-C++0x added lambda to the language with the following syntax: <code>[capture] (arguments) { body }</code>. <code>function</code> is a macro that transforms <code>function (var i)</code> into <code>[=] (var This, var arguments, var i)</code>. This allows to use the Javascript syntax and let us sneakily add the <code>this</code> and <code>arguments</code> magic variables.
+C++0x added lambda to the language with the following syntax: <code>[capture] (arguments) { body }</code>. <code>function</code> is a macro that transforms <code>function (var i)</code> into <code>\[=\] (var This, var arguments, var i)</code>. This allows to use the Javascript syntax and let us sneakily add the <code>this</code> and <code>arguments</code> magic variables.
 
 Since everything must be typed in C++, we have to add <code>var</code> before the argument name.
 
