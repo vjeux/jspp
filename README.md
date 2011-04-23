@@ -7,7 +7,7 @@ Dynamic Typing
 <table><tr><td><strong>C++</strong><pre>
 var repeat = function (var str, var times) {
     var ret = "";
-    for (var i = 0; i < times; ++i) {
+    for (var i = 0; i &lt; times; ++i) {
         ret += str + i;
     }
     return ret;
@@ -18,7 +18,7 @@ std::cout &lt;&lt; repeat(" js++", 3) &lt;&lt; std::endl;
 </pre></td><td><strong>Javascript</strong><pre>
 var repeat = function (str, times) {
     var ret = "";
-    for (var i = 0; i < times; ++i) {
+    for (var i = 0; i &lt; times; ++i) {
         ret += str + i;
     }
     return ret;
@@ -63,7 +63,7 @@ Function
 <table><tr><td><strong>C++</strong><pre>
 var Utils = {
     _["map"] = function (var array, var func) {
-        for (var i = 0; i < array["length"]; ++i) {
+        for (var i = 0; i &lt; array["length"]; ++i) {
             array[i] = func(i, array[i]);
         }
 		return undefined;
@@ -82,7 +82,7 @@ std::cout &lt;&lt; a &lt;&lt; std::endl;
 </pre></td><td><strong>Javascript</strong><pre>
 var Utils = {
     "map": function (array, func) {
-        for (var i = 0; i < array["length"]; ++i) {
+        for (var i = 0; i &lt; array["length"]; ++i) {
             array[i] = func(i, array[i]);
         }
     }
