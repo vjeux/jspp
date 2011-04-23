@@ -4,6 +4,8 @@ JSPP
 
 Dynamic Typing
 --------
+There is only one class called <code>var</code>. All the operators +, +=, ++, &lt, * ... are overloaded in order to make the right behavior. Since this is only a prototype, all of them are not working properly nor following the ECMAScript standard.
+
 <table><tr><td><strong>C++</strong><pre>
 var repeat = function (var str, var times) {
     var ret = "";
@@ -32,6 +34,7 @@ console.log(repeat(" js++", 3));
 
 Exception
 --------
+Javascript exception mechanism is directly borrowed from C++, therefore we can use the native one.
 <table><tr><td><strong>C++</strong><pre>
 var go_die = function () {
     throw _("Exception!");
@@ -60,13 +63,17 @@ try {
 
 Function
 --------
+C++0x added lambda to the language with the following syntax: <code>[capture] (arguments) { body }</code>. <code>function</code> is a macro that transforms <code>function (var i)</code> into <code>[=] (var This, var arguments, var i)</code>. This allows to use the Javascript syntax and let us sneakily add the <code>this</code> and <code>arguments</code> magic variables.
+
+Since everything must be typed in C++, we have to add <code>var</code> before the argument name.
+
 <table><tr><td><strong>C++</strong><pre>
 var Utils = {
     _["map"] = function (var array, var func) {
         for (var i = 0; i &lt; array["length"]; ++i) {
             array[i] = func(i, array[i]);
         }
-		return undefined;
+        return undefined;
     }
 };
 
@@ -162,9 +169,9 @@ var json = {
     _["string"] = "kikoo",
     _["array"] = {1, 2, "lol"},
 
-	_["nested"] = _({
+    _["nested"] = _({
         _["first"] = 1
-	})
+    })
 };
 
 std::cout &lt;&lt; json &lt;&lt; std::endl;
@@ -176,9 +183,9 @@ var json = {
     "string": "kikoo",
     "array": [1, 2, "lol"],
 
-	"nested": {
+    "nested": {
         "first": 1
-	}
+    }
 };
 
 console.log(json);
@@ -220,15 +227,15 @@ var $ = "prototype";
 var jQuery = "jQuery";
 
 _(function (var $) {
-	var global = "local";
+    var global = "local";
 
-	std::cout &lt;&lt; "Inside:      $ = " &lt;&lt; $ &lt;&lt; std::endl;
-	std::cout &lt;&lt; "Inside: global = " &lt;&lt; global &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Inside:      $ = " &lt;&lt; $ &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Inside: global = " &lt;&lt; global &lt;&lt; std::endl;
 
-	// Inside:      $ = jQuery
-	// Inside: global = local
+    // Inside:      $ = jQuery
+    // Inside: global = local
 
-	return undefined;
+    return undefined;
 })(jQuery);
 
 std::cout &lt;&lt; "Outside:      $ = " &lt;&lt; $ &lt;&lt; std::endl;
@@ -242,15 +249,15 @@ var $ = "prototype";
 var jQuery = "jQuery";
 
 (function ($) {
-	var global = "local";
+    var global = "local";
 
-	console.log("Inside:      $ = ", $);
-	console.log("Inside: global = ", global);
+    console.log("Inside:      $ = ", $);
+    console.log("Inside: global = ", global);
 
-	// Inside:      $ = jQuery
-	// Inside: global = local
+    // Inside:      $ = jQuery
+    // Inside: global = local
 
-	return undefined;
+    return undefined;
 })(jQuery);
 
 console.log("Outside:      $ = ", $);
