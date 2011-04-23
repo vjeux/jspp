@@ -1,4 +1,4 @@
 
 CPP                                           | Javascript
 ----------------------------------------------|---------------------------------------:
-```javascript\\Test\\Test```                                 | ```javascript```
+```javascript\nTest\\Test```                                 | ```javascript```
