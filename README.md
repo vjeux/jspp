@@ -273,8 +273,8 @@ var f = function (var x, var y) {
 };
 
 // New creates a new object this
-var a = New(f)(1, 2); // this: <function 0x005240d0>
-var b = New(f)(3, 4); // this: <function 0x005248e0>
+var a = New(f)(1, 2); // this: &lt;function 0x005240d0>
+var b = New(f)(3, 4); // this: &lt;function 0x005248e0>
 
 // Unbound call, 
 var c = f(5, 6); // this: undefined
@@ -296,8 +296,8 @@ var f = function (x, y) {
 };
 
 // New creates a new object this
-var a = new f(1, 2); // this: <object 0x005240d0>
-var b = new f(3, 4); // this: <object 0x005248e0>
+var a = new f(1, 2); // this: &lt;object 0x005240d0>
+var b = new f(3, 4); // this: &lt;object 0x005248e0>
 
 // Unbound call, 
 var c = f(5, 6); // this: global object
