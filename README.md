@@ -40,11 +40,11 @@ var parent = { _["x"] = 42 };
 var child = { };
 child["prototype"] = parent;
 
-std::cout << child["x"] << std::endl;
+std::cout &lt;&lt; child["x"] &lt;&lt; std::endl;
 // 42
 
 child["x"] = "js++";
-std::cout << child["x"] << std::endl;
+std::cout &lt;&lt; child["x"] &lt;&lt; std::endl;
 // "js++"
 ```
 
@@ -56,20 +56,20 @@ Dynamic Typing
 ```javascript
 var repeat = function (var str, var times) {
 	var ret = "";
-	for (var i = 0; i < times; ++i) {
+	for (var i = 0; i &lt; times; ++i) {
 		ret += str;
 	}
 	return ret;
 }
 
-std::cout << repeat("js++ ", 3) << std::endl;
+std::cout &lt;&lt; repeat("js++ ", 3) &lt;&lt; std::endl;
 // "js++ js++ js++ "
 ```
 </pre></td><td><strong>Javascript</strong><pre>
 ```javascript
 var repeat = function (str, times) {
 	var ret = "";
-	for (var i = 0; i < times; ++i) {
+	for (var i = 0; i &lt; times; ++i) {
 		ret += str;
 	}
 	return ret;
@@ -88,7 +88,7 @@ Iteration
 ```javascript
 var array = {10, 42, 30};
 for (var i : array) {
-	std::cout << i << " - " << array[i] << std::endl;
+	std::cout &lt;&lt; i &lt;&lt; " - " &lt;&lt; array[i] &lt;&lt; std::endl;
 }
 // 0 - 10
 // 1 - 42
@@ -102,7 +102,7 @@ var object = {
 	_["c"] = 3
 };
 for (var i : object) {
-	std::cout << i << " - " << object[i] << std::endl;
+	std::cout &lt;&lt; i &lt;&lt; " - " &lt;&lt; object[i] &lt;&lt; std::endl;
 }
 // a - 1
 // b - 2
@@ -113,7 +113,7 @@ for (var i : object) {
 ```javascript
 var array = {10, 42, 30};
 for (var i : array) {
-	std::cout << i << " - " << array[i] << std::endl;
+	std::cout &lt;&lt; i &lt;&lt; " - " &lt;&lt; array[i] &lt;&lt; std::endl;
 }
 // 0 - 10
 // 1 - 42
@@ -153,7 +153,7 @@ Utils["map"](a, function (var i) {
 	return i += 1;
 });
 
-std::cout << a << std::endl;
+std::cout &lt;&lt; a &lt;&lt; std::endl;
 // {2, 3, 4}
 
 
@@ -172,7 +172,7 @@ a["key"] = "old";
 var b = a;
 b["key"] = "new";
 
-std::cout << a["key"] << " - " << b["key"] << std::endl;
+std::cout &lt;&lt; a["key"] &lt;&lt; " - " &lt;&lt; b["key"] &lt;&lt; std::endl;
 // new - new 
 ```
 
