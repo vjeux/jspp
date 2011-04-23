@@ -1,6 +1,6 @@
 
 CPP | Javascript
------------------
+-----------------:
 ```javascript
 var repeat = function (var str, var times) {
     var ret = "";
