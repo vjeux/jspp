@@ -63,7 +63,12 @@ try {
 
 Function
 --------
-C++0x added lambda to the language with the following syntax: <code>[capture] (arguments) { body }</code>. <code>function</code> is a macro that transforms <code>function (var i)</code> into <code>\[=\] (var This, var arguments, var i)</code>. This allows to use the Javascript syntax and let us sneakily add the <code>this</code> and <code>arguments</code> magic variables.
+C++0x added lambda to the language with the following syntax: <code>\[capture\] (arguments) { body }</code>. <code>function</code> is a macro that transforms <code>function (var i)</code> into <code>\[=\] (var This, var arguments, var i)</code>. This allows to use the Javascript syntax and let us sneakily add the <code>this</code> and <code>arguments</code> magic variables.
+
+C++ is strongly typed and even lambdas have types. We can overload the Object constructor on
+[http://stackoverflow.com/questions/4170201/c0x-overloading-on-lambda-arity/4196447#4196447](lambda arity) and have a typed container for each one. Then, we overload the <code>() operator</code> that will call the stored lambda. We we carefully add <code>undefined</code> values for unspecified arguments and fill the <code>This</code> and <code>arguments</code> variables.
+
+In Javascript, when a function does not return a value, it returns undefined. Sadly, we cannot have a default return value in C++, you have to write it yourself.
 
 Since everything must be typed in C++, we have to add <code>var</code> before the argument name.
 
@@ -111,6 +116,7 @@ console.log(a);
 
 Iteration
 --------
+We use the new iteration facility of C++0x to deal with <code>for(var in)</code> Javascript syntax. As this is a prototype, it currently loops over all the keys of the object. However, it is possible to implement the <code>isEnumerable</code> functionnality.
 <table><tr><td><strong>C++</strong><pre>
 var array = {10, 42, 30};
 for (var i : array) {
@@ -163,6 +169,10 @@ for (var i in object) {
 
 JSON
 --------
+The Javascript Object notation can be emulated thanks to C++0x initialization lists and a bit of operator overload hackery. <code>_</code> as an operator <code>[]</code> that returns a <code>KeyValue</code> object, that has an operator <code>=</code> overload that fills both keys and values. For each value of the initialization listL If that's an objet, it is treated like an <code>Array</code> (add one to the lenght and use the length as key). If that's a <code>KeyValue</code>, both key and value are set.
+
+There is an ambiguity with nested initialization lists, we use <code>_()</code> to cast the list into an Object. It is probably possible to fix it.
+
 <table><tr><td><strong>C++</strong><pre>
 var json = {
     _["number"] = 42,
@@ -197,6 +207,7 @@ console.log(json);
 
 Reference
 --------
+As in Javascript, everything is passed by reference. The current implementation uses a simple reference count to handle garbage collection.
 <table><tr><td><strong>C++</strong><pre>
 var a = {};
 a["key"] = "old";
