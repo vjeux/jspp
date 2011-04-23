@@ -66,7 +66,7 @@ Function
 C++0x added lambda to the language with the following syntax: <code>\[capture\] (arguments) { body }</code>. <code>function</code> is a macro that transforms <code>function (var i)</code> into <code>\[=\] (var This, var arguments, var i)</code>. This allows to use the Javascript syntax and let us sneakily add the <code>this</code> and <code>arguments</code> magic variables.
 
 C++ is strongly typed and even lambdas have types. We can overload the Object constructor on
-(http://stackoverflow.com/questions/4170201/c0x-overloading-on-lambda-arity/4196447#4196447)[lambda arity] and have a typed container for each one. Then, we overload the <code>() operator</code> that will call the stored lambda. We we carefully add <code>undefined</code> values for unspecified arguments and fill the <code>This</code> and <code>arguments</code> variables.
+[lambda arity](http://stackoverflow.com/questions/4170201/c0x-overloading-on-lambda-arity/4196447#4196447) and have a typed container for each one. Then, we overload the <code>() operator</code> that will call the stored lambda. We we carefully add <code>undefined</code> values for unspecified arguments and fill the <code>This</code> and <code>arguments</code> variables.
 
 In Javascript, when a function does not return a value, it returns undefined. Sadly, we cannot have a default return value in C++, you have to write it yourself.
 
