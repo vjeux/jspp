@@ -1,8 +1,6 @@
 
 CPP                                           | Javascript
 ----------------------------------------------|---------------------------------------:
-```javascript
-This is a test
-```  | ```javascript```                                
-Another
-```
+```javascript                                 | ```javascript```
+This is a test                                | Another one
+```                                           | ```
