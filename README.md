@@ -4,7 +4,7 @@ JSPP
 
 Dynamic Typing
 --------
-There is only one class called <code>var</code>. All the operators +, +=, ++, &lt, * ... are overloaded in order to make the right behavior. Since this is only a prototype, all of them are not working properly nor following the ECMAScript standard.
+There is only one class called <code>var</code>. All the operators <code>+</code>, <code>+=</code>, <code>++</code>, <code>&lt;</code>, <code>*</code> ... are overloaded in order to make the right behavior. Since this is only a prototype, all of them are not working properly nor following the ECMAScript standard.
 
 <table><tr><td><strong>C++</strong><pre>
 var repeat = function (var str, var times) {
