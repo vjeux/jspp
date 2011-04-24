@@ -82,10 +82,11 @@ public:
 	Object operator()(Object, Object, Object, Object, Object);
 
 	std::string toString();
-	Object& get_key(Object key);
+	Object& get_key(std::string key);
 	Object& operator[](Object key);
 
 	Object* self;
+	Object* write;
 	State* s;
 
 

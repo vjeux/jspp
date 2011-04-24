@@ -6,4 +6,4 @@ var b = a;
 b["key"] = "new";
 
 console.log(a["key"], b["key"]);
-// new - new 
+// new new 

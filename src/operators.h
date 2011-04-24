@@ -240,17 +240,19 @@ std::string Object::toString() {
 }
 
 
-Object& Object::get_key(Object key) {
-	Object& ret = s->map[key.toString()];
+Object& Object::get_key(std::string key) {
+	Object& ret = s->map[key];
 	if (ret == undefined && s->map["prototype"] != undefined) {
-		return s->map["prototype"][key];
+		return s->map["prototype"].get_key(key);
 	}
 	return ret;
 }
 
 Object& Object::operator[](Object key) {
-	Object& ret = get_key(key);
+	std::string key_str = key.toString();
+	Object& ret = get_key(key_str);
 	ret.self = this;
+	ret.write = &s->map[key_str];
 	return ret;
 }
 

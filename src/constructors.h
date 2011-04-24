@@ -1,47 +1,47 @@
 
 	
 Object& Object::operator= (Object o) {
-	s = o.s;
-	s->refcount += 1;
-	return *this;
+	write->s = o.s;
+	write->s->refcount += 1;
+	return *write;
 }
 
 
-Object::Object(const Object& o) : self(o.self), s(o.s) {
+Object::Object(const Object& o) : self(o.self), write(this), s(o.s) {
 	s->refcount += 1;
 }
 
-Object::Object() : self(&undefined), s(new State) {
+Object::Object() : self(&undefined), write(this), s(new State) {
 	s->type = UNDEFINED;
 }
 	
-Object::Object(double n) : self(&undefined), s(new State)  {
+Object::Object(double n) : self(&undefined), write(this), s(new State)  {
 	s->n = n;
 	s->type = NUMBER;
 }
 
-Object::Object(int n) : self(&undefined), s(new State)  {
+Object::Object(int n) : self(&undefined), write(this), s(new State)  {
 	s->n = n;
 	s->type = NUMBER;
 }
 	
-Object::Object(bool b) : self(&undefined), s(new State)  {
+Object::Object(bool b) : self(&undefined), write(this), s(new State)  {
 	s->n = b ? 1 : 0;
 	s->type = NUMBER;
 }
 	
-Object::Object(const char* str) : self(&undefined), s(new State)  {
+Object::Object(const char* str) : self(&undefined), write(this), s(new State)  {
 	s->s = str;
 	s->type = STRING;
 }
 
-Object::Object(std::string str) : self(&undefined), s(new State)  {
+Object::Object(std::string str) : self(&undefined), write(this), s(new State)  {
 	s->s = str;
 	s->type = STRING;
 }
 
 template<typename F> // Function
-Object::Object(F f) : self(&undefined), s(new State) 
+Object::Object(F f) : self(&undefined), write(this), s(new State) 
 {
 	set_func(f, &F::operator());
 	s->type = FUNCTION;
@@ -49,13 +49,13 @@ Object::Object(F f) : self(&undefined), s(new State)
 }
 
 
-Object::Object(std::pair<const std::basic_string<char>, Object> it) : self(&undefined), s(new State) {
+Object::Object(std::pair<const std::basic_string<char>, Object> it) : self(&undefined), write(this), s(new State) {
 	s->s = it.first;
 	s->type = STRING;
 }
 
 
-Object::Object(std::initializer_list<Object> list) : self(&undefined), s(new State) {
+Object::Object(std::initializer_list<Object> list) : self(&undefined), write(this), s(new State) {
 	s->type = OBJECT;
 	bool is_array = false;
 	for (auto it = list.begin(); it != list.end(); ++it) {
@@ -74,7 +74,7 @@ Object::Object(std::initializer_list<Object> list) : self(&undefined), s(new Sta
 	}
 }
 
-Object::Object(KeyValue& kv) : self(&undefined), s(new State) {
+Object::Object(KeyValue& kv) : self(&undefined), write(this), s(new State) {
 	s->type = KEYVALUE;
 	s->kv = &kv;
 }
@@ -92,6 +92,7 @@ Object New(Object o) {
 	n.s->f5 = o.s->f5;
 
 	n.self = &n;
+	n["prototype"] = o["prototype"];
 
 	return n;
 }

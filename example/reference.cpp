@@ -8,7 +8,7 @@ var b = a;
 b["key"] = "new";
 
 std::cout << a["key"] << " " << b["key"] << std::endl;
-// new - new 
+// new new 
 
 
 #include "../src/javascript_end.h"

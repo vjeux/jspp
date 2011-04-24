@@ -1,8 +1,8 @@
 
 var json = {
     "number": 42,
-    "string": "kikoo",
-    "array": [1, 2, "lol"],
+    "string": "vjeux",
+    "array": [1, 2, "three"],
 
 	"nested": {
         "first": 1
@@ -11,6 +11,6 @@ var json = {
 
 console.log(json);
 // { number: 42,
-//   string: 'kikoo',
-//   array: [ 1, 2, 'lol' ],
+//   string: 'vjeux',
+//   array: [ 1, 2, 'three' ],
 //   nested: { first: 1 } }
