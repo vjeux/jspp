@@ -6,26 +6,26 @@ C++ has a new standard called C++0x ([Wikipedia](http://en.wikipedia.org/wiki/C%
 
 The goal of this project is to transform C++ into Javascript. The goal is to be able to copy & paste Javascript into C++ and be able to run it. While this is not 100% feasible, the result is quite amazing.
 
-This is only a prototype. In about 600 lines of code we manage to make the core of the Javascript language.
+**This is only a prototype**. In about 600 lines of code we manage to make the core of the Javascript language.
 
 Pro / Cons
 ----------
 The awesome part is the fact that it is possible to develop nearly all the concepts of Javascript in C++.
 
-Pros
+**Pros**
 
   - Write C++ in a dynamic fashion!
   - Extremely easy to integrate all the existing C++ code base.
   - Fun :)
 
-Cons
+**Cons**
 
   - Not possible to optimize as much as the latest Javascript engines
   - Some features are impossible to write such as <code>eval</code>, <code>with</code>, named functions ...
   - No REPL
   - A bit more verbose than Javascript
 
-How to Improve
+**How to Improve**
 
   - Code the <code>arguments</code> management
   - Develop the Javascript standard library (operators, Array, Regex ...)
