@@ -35,6 +35,8 @@ console.log(repeat(" js++", 3));
 Exception
 --------
 Javascript exception mechanism is directly borrowed from C++, therefore we can use the native one.
+
+We need to throw a Javascript object. We can either throw a new instance of a Javascript function or use <code>_()</code> to cast a string into an object.
 <table><tr><td><strong>C++</strong><pre>
 var go_die = function () {
     throw _("Exception!");
@@ -232,6 +234,8 @@ console.log(a["key"], b["key"]);
 
 Scope
 --------
+Scope management is done with lambdas. Since they are implemented in C++0x, it works without pain.
+
 <table><tr><td><strong>C++</strong><pre>
 var global = "global";
 var $ = "prototype";
@@ -282,6 +286,18 @@ console.log("Outside: global = ", global);
 
 This
 --------
+There are four ways to set the <code>this</code> value.
+	- Function call: <code>foo()</code>. <code>this</code> is set to the global object. As this is not a proper way to do things, I set it to undefined.
+	- Method call: <code>object.foo()</code>. <code>this</code> is set to <code>object</code>.
+	- Constructor: <code>new foo()</code>. <code>foo</code> is called with a new instance of <code>this</code>.
+	- Explicit: <code>foo.call(this, arguments...)</code>. We explicitely set the this value.
+
+All four ways are implemented in jspp but in a different way than Javascript. In Javascript, the language knows the construction and therefore can deduce what <code>this</code> is going to be. In C++, on the other hand, have a local view of what is going on.
+
+We associate a <code>this</code> value for every object, by default being <code>undefined</code>. If we obtain the object through another object(<code>test.foo()</code>), <code>this</code> is set to be the base object. <code>New</code> creates a new function object with <code>this</code> set to itself. Therefore it can be called to initialize the object.
+
+
+
 <table><tr><td><strong>C++</strong><pre>
 var f = function (var x, var y) {
     std::cout &lt;&lt; "this: " &lt;&lt; This &lt;&lt; std::endl;
