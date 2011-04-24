@@ -14,23 +14,23 @@ The awesome part is the fact that it is possible to develop nearly all the conce
 
 Pros
 
-	- Write C++ in a dynamic fashion!
-	- Extremely easy to integrate all the existing C++ code base.
-	- Fun :)
+  - Write C++ in a dynamic fashion!
+  - Extremely easy to integrate all the existing C++ code base.
+  - Fun :)
 
 Cons
 
-	- Not possible to optimize as much as the latest Javascript engines
-	- Some features are impossible to write such as <code>eval</code>, <code>with</code>, named functions ...
-	- No REPL
-	- A bit more verbose than Javascript
+  - Not possible to optimize as much as the latest Javascript engines
+  - Some features are impossible to write such as <code>eval</code>, <code>with</code>, named functions ...
+  - No REPL
+  - A bit more verbose than Javascript
 
 How to Improve
 
-	- Code the <code>arguments</code> management
-	- Develop the Javascript standard library (operators, Array, Regex ...)
-	- Find ways to minimize the C++ overhead (remove the use of <code>_()</code>)
-	- Find concepts that I did not introduce
+  - Code the <code>arguments</code> management
+  - Develop the Javascript standard library (operators, Array, Regex ...)
+  - Find ways to minimize the C++ overhead (remove the use of <code>_()</code>)
+  - Find concepts that I did not introduce
 
 
 Function
