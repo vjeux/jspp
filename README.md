@@ -293,6 +293,7 @@ console.log("Outside: global = ", global);
 This
 --------
 There are [four ways](http://bonsaiden.github.com/JavaScript-Garden/#function.this) to set the <code>this</code> value.
+
   - **Function call**: <code>foo()</code>. <code>this</code> is set to the global object. As this is not a proper way to do things, I set it to undefined.
   - **Method call**: <code>object.foo()</code>. <code>this</code> is set to <code>object</code>.
   - **Constructor**: <code>new foo()</code>. <code>foo</code> is called with a new instance of <code>this</code>.
