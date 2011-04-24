@@ -4,7 +4,7 @@ JSPP
 
 C++ has a new standard called C++0x ([Wikipedia](http://en.wikipedia.org/wiki/C%2B%2B0x), [Bjarne Stroustrup](http://www2.research.att.com/~bs/C++0xFAQ.html)) that includes many interesting features such as Lambda, For Each, List Initialization ... Those features are so powerful that they allow to write C++ as if it was Javascript.
 
-The goal of this project is to transform C++ into Javascript. The goal is to be able to copy & paste Javascript into C++ and be able to run it. While this is not 100% feasible, the result is quite amazing.
+The goal of this project is to transform C++ into Javascript. We want to be able to copy & paste Javascript into C++ and be able to run it. While this is not 100% feasible, the result is quite amazing.
 
 **This is only a prototype**. In about 600 lines of code we manage to make the core of the Javascript language.
 
@@ -380,3 +380,25 @@ try {
 // Error: Exception!
 </pre></td></tr></table>
 
+
+How to use
+----------
+**Note: Only the strict minimum of code able to run the examples has been written. It is a prototype, do not try to use it for any serious development.**
+
+The library can be compiled under **g++ 4.6**, **Visual Studio 2010** and the latest version of **ICC**. However Visual Studio and ICC do not support the initialization lists, so you cannot use the JSON syntax. But all the other examples will compile.
+
+All the examples of this page are available in the <code>example/</code> folder. The following execution will let you run the examples.
+```
+> make
+g++ -o example/dynamic.jspp example/dynamic.cpp -Wall -std=gnu++0x
+g++ -o example/exception.jspp example/exception.cpp -Wall -std=gnu++0x
+...
+> cd example
+> ./json.jspp
+{array: [1, 2, lol], nested: {first: 1}, number: 42, string: kikoo}
+> node json.js
+{ number: 42,
+  string: 'kikoo',
+  array: [ 1, 2, 'lol' ],
+  nested: { first: 1 } }
+```
