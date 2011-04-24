@@ -99,57 +99,6 @@ console.log(json);
 
 
 
-Scope
---------
-Scope management is done with lambdas. Since they are implemented in C++0x, it works without pain.
-
-<table><tr><td><strong>C++</strong><pre>
-var global = "global";
-var $ = "prototype";
-var jQuery = "jQuery";
-
-_(function (var $) {
-    var global = "local";
-
-    std::cout &lt;&lt; "Inside:      $ = " &lt;&lt; $ &lt;&lt; std::endl;
-    std::cout &lt;&lt; "Inside: global = " &lt;&lt; global &lt;&lt; std::endl;
-
-    // Inside:      $ = jQuery
-    // Inside: global = local
-
-    return undefined;
-})(jQuery);
-
-std::cout &lt;&lt; "Outside:      $ = " &lt;&lt; $ &lt;&lt; std::endl;
-std::cout &lt;&lt; "Outside: global = " &lt;&lt; global &lt;&lt; std::endl;
-
-// Outside:      $ = prototype
-// Outside: global = global
-</pre></td><td><strong>Javascript</strong><pre>
-var global = "global";
-var $ = "prototype";
-var jQuery = "jQuery";
-
-(function ($) {
-    var global = "local";
-
-    console.log("Inside:      $ = ", $);
-    console.log("Inside: global = ", global);
-
-    // Inside:      $ = jQuery
-    // Inside: global = local
-
-    return undefined;
-})(jQuery);
-
-console.log("Outside:      $ = ", $);
-console.log("Outside: global = ", global);
-
-// Outside:      $ = prototype
-// Outside: global = global
-</pre></td></tr></table>
-
-
 
 This
 --------
@@ -298,6 +247,57 @@ var repeat = function (str, times) {
 
 console.log(repeat(" js++", 3));
 // " js++0 js++1 js++2"
+</pre></td></tr></table>
+
+
+Scope
+--------
+Scope management is done with lambdas. Since they are implemented in C++0x, it works without pain.
+
+<table><tr><td><strong>C++</strong><pre>
+var global = "global";
+var $ = "prototype";
+var jQuery = "jQuery";
+
+_(function (var $) {
+    var global = "local";
+
+    std::cout &lt;&lt; "Inside:      $ = " &lt;&lt; $ &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Inside: global = " &lt;&lt; global &lt;&lt; std::endl;
+
+    // Inside:      $ = jQuery
+    // Inside: global = local
+
+    return undefined;
+})(jQuery);
+
+std::cout &lt;&lt; "Outside:      $ = " &lt;&lt; $ &lt;&lt; std::endl;
+std::cout &lt;&lt; "Outside: global = " &lt;&lt; global &lt;&lt; std::endl;
+
+// Outside:      $ = prototype
+// Outside: global = global
+</pre></td><td><strong>Javascript</strong><pre>
+var global = "global";
+var $ = "prototype";
+var jQuery = "jQuery";
+
+(function ($) {
+    var global = "local";
+
+    console.log("Inside:      $ = ", $);
+    console.log("Inside: global = ", global);
+
+    // Inside:      $ = jQuery
+    // Inside: global = local
+
+    return undefined;
+})(jQuery);
+
+console.log("Outside:      $ = ", $);
+console.log("Outside: global = ", global);
+
+// Outside:      $ = prototype
+// Outside: global = global
 </pre></td></tr></table>
 
 
