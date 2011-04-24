@@ -388,6 +388,7 @@ How to use
 The library can be compiled under **g++ 4.6**, **Visual Studio 2010** and the latest version of **ICC**. However Visual Studio and ICC do not support the initialization lists, so you cannot use the JSON syntax. But all the other examples will compile.
 
 All the examples of this page are available in the <code>example/</code> folder. The following execution will let you run the examples.
+
 ```
 > make
 g++ -o example/dynamic.jspp example/dynamic.cpp -Wall -std=gnu++0x
