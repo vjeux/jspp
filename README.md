@@ -2,6 +2,12 @@
 JSPP
 =====
 
+Pro / Cons
+----------
+Pros
+	- 
+
+
 Dynamic Typing
 --------
 There is only one class called <code>var</code>. All the operators <code>+</code>, <code>+=</code>, <code>++</code>, <code>&lt;</code>, <code>*</code> ... are overloaded in order to make the right behavior. Since this is only a prototype, all of them are not working properly nor following the ECMAScript standard.
@@ -286,15 +292,15 @@ console.log("Outside: global = ", global);
 
 This
 --------
-There are four ways to set the <code>this</code> value.
-	- Function call: <code>foo()</code>. <code>this</code> is set to the global object. As this is not a proper way to do things, I set it to undefined.
-	- Method call: <code>object.foo()</code>. <code>this</code> is set to <code>object</code>.
-	- Constructor: <code>new foo()</code>. <code>foo</code> is called with a new instance of <code>this</code>.
-	- Explicit: <code>foo.call(this, arguments...)</code>. We explicitely set the this value.
+There are [four ways](http://bonsaiden.github.com/JavaScript-Garden/#function.this) to set the <code>this</code> value.
+  - **Function call**: <code>foo()</code>. <code>this</code> is set to the global object. As this is not a proper way to do things, I set it to undefined.
+  - **Method call**: <code>object.foo()</code>. <code>this</code> is set to <code>object</code>.
+  - **Constructor**: <code>new foo()</code>. <code>foo</code> is called with a new instance of <code>this</code>.
+  - **Explicit**: <code>foo.call(this, arguments...)</code>. We explicitely set the this value.
 
-All four ways are implemented in jspp but in a different way than Javascript. In Javascript, the language knows the construction and therefore can deduce what <code>this</code> is going to be. In C++, on the other hand, have a local view of what is going on.
+All four ways are implemented in jspp but in a different way than Javascript. In Javascript, the language knows the construction and therefore can deduce what <code>this</code> is going to be. In C++, on the other hand, have a local view of what is going on. We have to develop another strategy for setting <code>this</code> that works for usual usage patterns.
 
-We associate a <code>this</code> value for every object, by default being <code>undefined</code>. If we obtain the object through another object(<code>test.foo()</code>), <code>this</code> is set to be the base object. <code>New</code> creates a new function object with <code>this</code> set to itself. Therefore it can be called to initialize the object.
+We associate a <code>this</code> value for every object, by default being <code>undefined</code>. If we obtain the object through another object(<code>test.foo()</code>), <code>this</code> is set to be the base object. <code>New</code> creates a new function object with <code>this</code> set to itself. Therefore it can be called to initialize the object. Contrary to Javascript, the constructor function has to return <code>this</code>.
 
 
 
