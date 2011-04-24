@@ -256,4 +256,4 @@ Object& Object::operator[](Object key) {
 	return ret;
 }
 
-#define function(...) [=] (var This, ##__VA_ARGS__) -> Object
+#define function(...) [=] (var This, ##__VA_ARGS__) mutable -> Object

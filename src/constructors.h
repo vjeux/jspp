@@ -5,7 +5,26 @@ Object& Object::operator= (Object o) {
 	write->s->refcount += 1;
 	return *write;
 }
+	
+Object& Object::operator|= (Object o) {
+	write->s->refcount += 1;
+	
+	write->s->type = o.s->type;
+	write->s->s = o.s->s;
+	write->s->n = o.s->n;
+	write->s->map = o.s->map;
+	write->s->kv = o.s->kv;
 
+	write->s->f = o.s->f;
+	write->s->f0 = o.s->f0;
+	write->s->f1 = o.s->f1;
+	write->s->f2 = o.s->f2;
+	write->s->f3 = o.s->f3;
+	write->s->f4 = o.s->f4;
+	write->s->f5 = o.s->f5;
+
+	return *write;
+}
 
 Object::Object(const Object& o) : self(o.self), write(this), s(o.s) {
 	s->refcount += 1;

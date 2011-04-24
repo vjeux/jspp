@@ -59,6 +59,7 @@ public:
 
 	
 	Object& operator= (Object o);
+	Object& operator|= (Object o);
 	Object(const Object& o);
 	Object();
 	Object(double n);
@@ -105,27 +106,27 @@ protected:
 	// http://stackoverflow.com/questions/4170201/c0x-overloading-on-lambda-arity
 
 	template<typename F>
-	void set_func(F& f, Object (F::*mf)(Object) const)
+	void set_func(F& f, Object (F::*mf)(Object))
 	{ s->f = 0; s->f0 = f; }
 
 	template<typename F>
-	void set_func(F& f, Object (F::*mf)(Object, Object) const)
+	void set_func(F& f, Object (F::*mf)(Object, Object))
 	{ s->f = 1; s->f1 = f; }
 
 	template<typename F>
-	void set_func(F& f, Object (F::*mf)(Object, Object, Object) const)
+	void set_func(F& f, Object (F::*mf)(Object, Object, Object))
 	{ s->f = 2; s->f2 = f; }
 
 	template<typename F>
-	void set_func(F& f, Object (F::*mf)(Object, Object, Object, Object) const)
+	void set_func(F& f, Object (F::*mf)(Object, Object, Object, Object))
 	{ s->f = 3; s->f3 = f; }
 
 	template<typename F>
-	void set_func(F& f, Object (F::*mf)(Object, Object, Object, Object, Object) const)
+	void set_func(F& f, Object (F::*mf)(Object, Object, Object, Object, Object))
 	{ s->f = 4; s->f4 = f; }
 
 	template<typename F>
-	void set_func(F& f, Object (F::*mf)(Object, Object, Object, Object, Object, Object) const)
+	void set_func(F& f, Object (F::*mf)(Object, Object, Object, Object, Object, Object))
 	{ s->f = 5; s->f5 = f; }
 };
 
