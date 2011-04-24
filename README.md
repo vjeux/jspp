@@ -7,5 +7,5 @@ The goal of this project is to transform C++ into Javascript. We want to be able
 
 **This is only a prototype**. In about 600 lines of code we manage to make the core of the Javascript language.
 
-  >> [Read the full description on my blog](http://blog.vjeux.com/2011/javascript/jspp-morph-cpp-into-javascript.html) <<
+  >> [Read the full description on my blog](http://blog.vjeux.com/2011/javascript/jspp-morph-cpp-into-javascript.html)
 ==============
