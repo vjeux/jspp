@@ -301,6 +301,30 @@ console.log("Outside: global = ", global);
 </pre></td></tr></table>
 
 
+Reference
+--------
+As in Javascript, everything is passed by reference. The current implementation uses a simple reference count to handle garbage collection.
+<table><tr><td><strong>C++</strong><pre>
+var a = {};
+a["key"] = "old";
+
+var b = a;
+b["key"] = "new";
+
+std::cout &lt;&lt; a["key"] &lt;&lt; " " &lt;&lt; b["key"] &lt;&lt; std::endl;
+// new new 
+</pre></td><td><strong>Javascript</strong><pre>
+var a = {};
+a["key"] = "old";
+
+var b = a;
+b["key"] = "new";
+
+console.log(a["key"], b["key"]);
+// new new 
+</pre></td></tr></table>
+
+
 
 Exception
 --------
@@ -331,27 +355,3 @@ try {
 // Error: Exception!
 </pre></td></tr></table>
 
-
-
-Reference
---------
-As in Javascript, everything is passed by reference. The current implementation uses a simple reference count to handle garbage collection.
-<table><tr><td><strong>C++</strong><pre>
-var a = {};
-a["key"] = "old";
-
-var b = a;
-b["key"] = "new";
-
-std::cout &lt;&lt; a["key"] &lt;&lt; " " &lt;&lt; b["key"] &lt;&lt; std::endl;
-// new new 
-</pre></td><td><strong>Javascript</strong><pre>
-var a = {};
-a["key"] = "old";
-
-var b = a;
-b["key"] = "new";
-
-console.log(a["key"], b["key"]);
-// new new 
-</pre></td></tr></table>
