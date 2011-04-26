@@ -9,3 +9,8 @@ The goal of this project is to transform C++ into Javascript. We want to be able
 
   >> [Read the full description on my blog](http://blog.vjeux.com/2011/javascript/jspp-morph-cpp-into-javascript.html)
 ==============
+
+ChangeLog
+------
+
+* April 26 2011 - `for (var key : obj)` is now `for (var key in obj)`. Thanks [Rip-Rip](https://github.com/Rip-Rip/)
