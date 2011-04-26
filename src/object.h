@@ -91,7 +91,6 @@ public:
 	State* s;
 
 
-
 	std::map<std::string, Object>::iterator begin() {
 		return s->map.begin();
 	}
@@ -99,6 +98,8 @@ public:
 	std::map<std::string, Object>::iterator end() {
 		return s->map.end();
 	}
+
+#define in :
 
 protected:
 

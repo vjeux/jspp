@@ -1,7 +1,7 @@
 #include "../src/javascript_start.h"
 
 var array = {10, 42, 30};
-for (var i : array) {
+for (var i in array) {
     std::cout << i << " - " << array[i] << std::endl;
 }
 // 0 - 10
@@ -15,7 +15,7 @@ var object = {
     _["b"] = 2,
     _["c"] = 3
 };
-for (var i : object) {
+for (var i in object) {
     std::cout << i << " - " << object[i] << std::endl;
 }
 // a - 1
