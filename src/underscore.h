@@ -1,6 +1,5 @@
 
-class KeyValue {
-public:
+struct KeyValue {
 	KeyValue(std::string k) : key(k), value(undefined) {
 	}
 
@@ -21,6 +20,10 @@ public:
 	KeyValue& operator[] (Object key) {
 		KeyValue* kv = new KeyValue(key.toString());
 		return *kv;
+	}
+
+	Object operator= (Object a) {
+		return a;
 	}
 
 	Object* key;

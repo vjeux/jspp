@@ -5,6 +5,7 @@
 #include "constructors.h"
 
 #define catch(e) catch(var e)
+#define throw throw _=
 
 int main()
 {

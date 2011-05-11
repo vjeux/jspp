@@ -1,7 +1,7 @@
 #include "../src/javascript_start.h"
 
 var go_die = function () {
-    throw _("Exception!");
+    throw "Exception!";
 };
 
 try {
