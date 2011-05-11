@@ -13,4 +13,5 @@ The goal of this project is to transform C++ into Javascript. We want to be able
 ChangeLog
 ------
 
+* May 11 2011 - Removed `var` in `catch(var e)`. Removed `_()` in `throw _("e")`. `This` and `New` can be written in lowercase. 
 * April 26 2011 - `for (var key : obj)` is now `for (var key in obj)`. Thanks [Rip-Rip](https://github.com/Rip-Rip/)
