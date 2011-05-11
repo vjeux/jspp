@@ -1,6 +1,6 @@
 
 
-	} catch (var e) {
+	} catch (e) {
 		std::cout << "Uncatched error: " << e << std::endl;
 	}
 

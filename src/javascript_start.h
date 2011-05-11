@@ -4,6 +4,8 @@
 #include "operators.h"
 #include "constructors.h"
 
+#define catch(e) catch(var e)
+
 int main()
 {
 	try {

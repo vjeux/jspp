@@ -6,7 +6,7 @@ var go_die = function () {
 
 try {
     go_die();
-} catch (var e) {
+} catch (e) {
     std::cout << "Error: " << e << std::endl;
 }
 // Error: Exception!
