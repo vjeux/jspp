@@ -1,16 +1,16 @@
 #include "../src/javascript_start.h"
 
 var f = function (var x, var y) {
-    std::cout << "this: " << This << std::endl;
-    This["x"] = x;
-    This["y"] = y;
+    std::cout << "this: " << this << std::endl;
+    this["x"] = x;
+    this["y"] = y;
 
-    return This;
+    return this;
 };
 
-// New creates a new object this
-var a = New(f)(1, 2); // this: <function 0x005240d0>
-var b = New(f)(3, 4); // this: <function 0x005248e0>
+// new creates a new object this
+var a = new (f)(1, 2); // this: <function 0x005240d0>
+var b = new (f)(3, 4); // this: <function 0x005248e0>
 
 // Unbound call, 
 var c = f(5, 6); // this: undefined

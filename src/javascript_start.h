@@ -6,6 +6,8 @@
 
 #define catch(e) catch(var e)
 #define throw throw _=
+#define this This
+#define new New
 
 int main()
 {
