@@ -1,10 +1,9 @@
-
 // Initialize with a dummy value first or it'll go into an infinite loop
 global["Function"] = "Function";
 global["Function"] = function(var s) {
 	throw _("Cannot eval in C++ sorry :(");
 };
-global["Function"]["prototype"] = 0;
+global["Function"]["prototype"] = {};
 global["Function"]["prototype"]["call"] = function (var self, var a, var b, var c, var d) {
 	This.self = &self;
 	return This(a, b, c, d);
@@ -30,3 +29,8 @@ global["typeof"] = function (Object o) {
 	return undefined;
 };
 var Typeof = global["typeof"];
+
+global["Array"] = function () {
+	return {};
+};
+var Array = global["Array"];

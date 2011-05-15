@@ -75,21 +75,20 @@ Object::Object(std::pair<const std::basic_string<char>, Object> it) : self(&unde
 
 
 Object::Object(std::initializer_list<Object> list) : self(&undefined), write(this), s(new State) {
-	s->type = OBJECT;
-	bool is_array = false;
-	for (auto it = list.begin(); it != list.end(); ++it) {
-		if (it->s->type == KEYVALUE) {
-			(*this)[it->s->kv->key] = it->s->kv->value;
-			delete it->s->kv;
+	int length = 0;
+
+	for (auto elem : list)
+		if (elem.s->type == KEYVALUE) {
+			(*this)[elem.s->kv->key] = elem.s->kv->value;
+		} else {
+			(*this)[length++] = elem;
 		}
-		else {
-			if (!is_array) {
-				(*this)["length"] = 0;
-				is_array = true;
-			}
-			(*this)[(*this)["length"]] = *it;
-			(*this)["length"] = (*this)["length"] + 1;
-		}
+
+	if (length > 0) {
+		(*this)["length"] = length;
+		s->type = ARRAY;
+	} else {
+		s->type = OBJECT;
 	}
 }
 

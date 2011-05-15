@@ -14,6 +14,7 @@ enum Types {
 	UNDEFINED,
 	NULLL,
 	OBJECT,
+	ARRAY,
 	KEYVALUE
 };
 
@@ -23,11 +24,9 @@ class KeyValue;
 class State
 {
 public:
-	State() {
-		refcount = 1;
-	}
-
+	State() : refcount(1) {}
 	int refcount;
+
 	std::map<std::string, Object> map;
 	int type;
 
@@ -99,33 +98,37 @@ public:
 		return s->map.end();
 	}
 
-#define in :
-
 protected:
 
 /* Functions */
 	// http://stackoverflow.com/questions/4170201/c0x-overloading-on-lambda-arity
 
+	/* 0 param */
 	template<typename F>
 	void set_func(F& f, Object (F::*mf)(Object))
 	{ s->f = 0; s->f0 = f; }
 
+	/* 1 param */
 	template<typename F>
 	void set_func(F& f, Object (F::*mf)(Object, Object))
 	{ s->f = 1; s->f1 = f; }
 
+	/* 2 param */
 	template<typename F>
 	void set_func(F& f, Object (F::*mf)(Object, Object, Object))
 	{ s->f = 2; s->f2 = f; }
 
+	/* 3 param */
 	template<typename F>
 	void set_func(F& f, Object (F::*mf)(Object, Object, Object, Object))
 	{ s->f = 3; s->f3 = f; }
 
+	/* 4 param */
 	template<typename F>
 	void set_func(F& f, Object (F::*mf)(Object, Object, Object, Object, Object))
 	{ s->f = 4; s->f4 = f; }
 
+	/* 5 param */
 	template<typename F>
 	void set_func(F& f, Object (F::*mf)(Object, Object, Object, Object, Object, Object))
 	{ s->f = 5; s->f5 = f; }

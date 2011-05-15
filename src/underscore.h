@@ -1,6 +1,6 @@
 
 struct KeyValue {
-	KeyValue(std::string k) : key(k), value(undefined) {
+	KeyValue(std::string k) : key(k) {
 	}
 
 	KeyValue& operator=(Object v) {
@@ -25,9 +25,6 @@ public:
 	Object operator= (Object a) {
 		return a;
 	}
-
-	Object* key;
-	Object* value;
 };
 Underscore _;
 

@@ -69,6 +69,13 @@ Object Object::operator()(Object a, Object b, Object c, Object d, Object e) {
 	}
 
 
+Object operator >>(Object a, Object b) {
+	if (a.s->type == NUMBER && b.s->type == NUMBER) {
+		return (int)a.s->n >> (int)b.s->n;
+	}
+	throw Object("Unfinished operator>>");
+}
+
 
 Object operator +(Object a, Object b) {
 	if (a.s->type == NUMBER && b.s->type == NUMBER) {
@@ -140,8 +147,19 @@ Object& operator ++(Object& a) {
 	return a;
 }
 
-Object operator ++(Object a, int) {
-	return a + 1;
+Object& operator --(Object& a) {
+	a -= 1;
+	return a;
+}
+
+Object& operator --(Object& a, int) {
+	a -= 1;
+	return a;
+}
+
+Object& operator ++(Object& a, int) {
+	a += 1;
+	return a;
 }
 /*
 bool operator !(Object a) {
@@ -201,40 +219,40 @@ std::string Object::toString() {
 	}
 
 	if (s->type == OBJECT) {
-		var length = (*this)["length"];
-		if (length != undefined) {
-			std::ostringstream stream;
-			stream << "[";
+		std::ostringstream stream;
+		stream << "{";
 
-			for (var i = 0; i < length; ++i) {
-				stream << (*this)[i];
-				if (i != length - 1) {
+		bool first = true;
+		for (auto it = this->s->map.begin(); it != this->s->map.end(); ++it) {
+			if (it->second != undefined) {
+				if (!first) {
 					stream << ", ";
 				}
+				first = false;
+				stream << it->first << ": " << it->second;
 			}
-
-			stream << "]";
-			return stream.str();
 		}
-		else {
-			std::ostringstream stream;
-			stream << "{";
 
-			bool first = true;
-			for (auto it = this->s->map.begin(); it != this->s->map.end(); ++it) {
-				if (it->second != undefined) {
-					if (!first) {
-						stream << ", ";
-					}
-					first = false;
-					stream << it->first << ": " << it->second;
-				}
-			}
-
-			stream << "}";
-			return stream.str();
-		}
+		stream << "}";
+		return stream.str();
 	}
+
+	if (s->type == ARRAY) {
+		var length = (*this)["length"];
+		std::ostringstream stream;
+		stream << "[";
+
+		for (var i = 0; i < length; ++i) {
+			stream << (*this)[i];
+			if (i != length - 1) {
+				stream << ", ";
+			}
+		}
+
+		stream << "]";
+		return stream.str();
+	}
+
 
 	throw _("Unknown type");
 }
@@ -256,4 +274,3 @@ Object& Object::operator[](Object key) {
 	return ret;
 }
 
-#define function(...) [=] (var This, ##__VA_ARGS__) mutable -> Object
