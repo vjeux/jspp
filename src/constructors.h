@@ -110,7 +110,7 @@ Object New(Object o) {
 	n.s->f5 = o.s->f5;
 
 	n.self = &n;
-	n["prototype"] = o["prototype"];
+	n["__proto__"] = o["prototype"];
 
 	return n;
 }

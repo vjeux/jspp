@@ -260,8 +260,8 @@ std::string Object::toString() {
 
 Object& Object::get_key(std::string key) {
 	Object& ret = s->map[key];
-	if (ret == undefined && s->map["prototype"] != undefined) {
-		return s->map["prototype"].get_key(key);
+	if (ret == undefined && s->map["__proto__"] != undefined) {
+		return s->map["__proto__"].get_key(key);
 	}
 	return ret;
 }
